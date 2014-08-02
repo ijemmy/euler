@@ -1,6 +1,9 @@
 package com.ijemmy.euler;
 
 import java.math.BigInteger;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Prime {
 	//TODO: Implement caching if required
@@ -44,6 +47,26 @@ public class Prime {
 		}
 		
 		return result;		
+	}
+	
+	public static int[] getListBelow(int limit){
+		List<Integer> result = new LinkedList<Integer>();
+		int candidate = 2;
+		while(candidate <= limit){
+			if(isPrime(candidate)){
+				result.add(candidate);
+			}
+			candidate = (candidate == 2)? 3 : candidate + 2;
+		}
+		
+		//Convert List<Integer> to int[]
+		int[] intResult = new int[result.size()];
+		Iterator<Integer> resultIt = result.iterator();
+		for(int i = 0; i < intResult.length; i++){
+			intResult[i] = resultIt.next();
+		}
+		
+		return intResult;		
 	}
 	
 	public static int getPrimeAt(int primeAt){

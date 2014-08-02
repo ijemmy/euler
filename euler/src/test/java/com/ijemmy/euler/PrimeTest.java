@@ -2,6 +2,7 @@ package com.ijemmy.euler;
 
 import static org.junit.Assert.*;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 import org.junit.Test;
@@ -647,30 +648,30 @@ public class PrimeTest {
 		Prime.getPrimeAt(-1);
 	}
 	
-	private int sum(int[] numbers){
+	private BigInteger sum(int[] numbers){
 		int sum = 0;
 		for(int i = 0; i < numbers.length; i++){
 			sum += numbers[i];
 		}
-		return sum;
+		return BigInteger.valueOf(sum);
 	}
 	
 	@Test
 	public void primeSumBelow2(){
-		assertEquals(0, Prime.sumBelow(2));
+		assertEquals(BigInteger.valueOf(0l), Prime.sumBelow(2));
 	}	
 	
 	@Test
 	public void primeSumBelow10(){
 		int[] primeBelow10 = {2,3,5,7};
-		int sum = sum(primeBelow10);
+		BigInteger sum = sum(primeBelow10);
 		assertEquals(sum, Prime.sumBelow(10));
 	}	
 	
 	@Test
 	public void primeSumBelow20(){
 		int[] primeBelow20 = {2,3,5,7,11,13,17,19};
-		int sum = sum(primeBelow20);
+		BigInteger sum = sum(primeBelow20);
 		assertEquals(sum, Prime.sumBelow(20));
 	}	
 	
@@ -678,22 +679,38 @@ public class PrimeTest {
 	@Test
 	public void primeSumBelow50(){
 		int[] primeBelow50 = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47};
-		int sum = sum(primeBelow50);
+		BigInteger sum = sum(primeBelow50);
 		assertEquals(sum, Prime.sumBelow(50));
 	}	
 	
 	@Test
 	public void primeSumBelow100(){
 		int[] primeBelow100 = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97};
-		int sum = sum(primeBelow100);
+		BigInteger sum = sum(primeBelow100);
 		assertEquals(sum, Prime.sumBelow(100));
 	}	
 	
 	@Test
 	public void primeSumWithNonPositiveLimit(){
-		assertEquals(0, Prime.sumBelow(0));
-		assertEquals(0, Prime.sumBelow(-1));
+		assertEquals(BigInteger.valueOf(0l), Prime.sumBelow(0));
+		assertEquals(BigInteger.valueOf(0l), Prime.sumBelow(-1));
 	}	
 
+	@Test
+	public void getPrimeListBelow10(){
+		int[] primeBelow10 = {2,3,5,7};
+		assertArrayEquals(primeBelow10, Prime.getListBelow(10));
+	}
 	
+	@Test
+	public void getPrimeListBelow100(){
+		int[] primeBelow100 = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97};
+		assertArrayEquals(primeBelow100, Prime.getListBelow(100));
+	}
+	
+	@Test
+	public void getPrimeListBelow0(){
+		int[] primeBelow0 = {};
+		assertArrayEquals(primeBelow0, Prime.getListBelow(0));
+	} 
 }
