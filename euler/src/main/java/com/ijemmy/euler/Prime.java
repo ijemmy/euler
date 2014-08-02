@@ -1,5 +1,7 @@
 package com.ijemmy.euler;
 
+import java.math.BigInteger;
+
 public class Prime {
 	//TODO: Implement caching if required
 	
@@ -49,5 +51,17 @@ public class Prime {
 			throw new IllegalArgumentException("The position of prime must be positive");
 		}
 		return Prime.getList(primeAt)[primeAt-1];
+	}
+	
+	public static BigInteger sumBelow(int limit){
+		BigInteger sum = BigInteger.valueOf(0);
+		int candidate = 2;
+		while(candidate < limit){
+			if(isPrime(candidate)){		
+				sum = sum.add(BigInteger.valueOf(candidate));
+			}
+			candidate = (candidate == 2)? 3 : candidate + 2;
+		}
+		return sum;
 	}
 }
