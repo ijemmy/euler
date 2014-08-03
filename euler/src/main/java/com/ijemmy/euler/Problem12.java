@@ -5,7 +5,7 @@ import com.ijemmy.euler.lib.TriangularNumber;
 public class Problem12 {
 
 	/**
-	 * Adapt the idea from the answers in http://stackoverflow.com/questions/110344/algorithm-to-calculate-the-number-of-divisors-of-a-given-number
+	 * Adapt the idea of finding divisors from the answers in http://stackoverflow.com/questions/110344/algorithm-to-calculate-the-number-of-divisors-of-a-given-number
 	 * 1. Reduce problem to (n)*(n+1)/2
 	 * 2. To find number of divisors, we can calculate the multiplier of each prime factors
 	 * ex(1).   	Triangular Number 7th = (7)*(8)/2 = 7*4 = 2(2) * 7(1)
@@ -25,17 +25,17 @@ public class Problem12 {
 	 * 			HashMap#2 = {7->1, 3->1}
 	 * 			MergedHashMap = {2->1, 3->1, 5->1, 7->1}
 	 * 
-	 * Performance note: Notice that it is faster to find prime factorization of two numbers (7 and 4) instead of the whole number (28)
+	 * Note: Notice that it is faster to find prime factorization of two numbers (7 and 4) instead of the whole number (28)
 	 * To do prime factorization, we must find the list of all prime number until that number. This take O(sqr(N))
 	 * If we calculate prime factorization of two numbers (a and b), it is O(sqr(a)) + O(sqr(b))
 	 * If we calculate prime factorization of the sum, it is (O(sqr(a*b)))
-	 * Performance note(2): For this problem, Caching can be used in Factor class to improve speed because we repeatedly compute the number until
+	 * Note(2): For this problem, caching can be used in Factor class to improve speed because we repeatedly compute the number until
 	 * we find the number that 500 divisor. I do not implement cache because I want to keep the library generic and avoid adding static mutable object (HashMap) into the Factor class
 	 */
 	public static void main(String[] args) {
 		int currentN = 1;
-		TriangularNumber currentTN = new TriangularNumber(currentN) ;
-		int currentNoOfDivisor = currentTN.getNumberOfDivisors();
+		TriangularNumber currentTN = new TriangularNumber(currentN);
+		int currentNoOfDivisor = currentTN.getNumberOfDivisors(); //The map and all calculations are hidden in TriangularNumber class
 		while(currentNoOfDivisor <= 500){
 			currentN++;
 			currentTN = new TriangularNumber(currentN);

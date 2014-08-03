@@ -18,7 +18,8 @@ package com.ijemmy.euler;
  * We get that F(n) = 4n^2 - 6(n-1) + F(n-2) 
  * With base case F(1) = 1
  * e.g. F(9) = 4(9^2) - 6(8) + F(7)
- * With this formula, we can recursively/iteratively calculate the the sum for given spiral n x n
+ * With this formula, we can iteratively calculate the the sum for given spiral n x n.
+ * We'll use iterative as it has better performance
  * @author ijemmy
  *
  */
@@ -28,6 +29,11 @@ public class Problem28 {
 		System.out.println("sum of the numbers on the diagonals in a 1001 by 1001 spiral is " + diagonalSumOfSpiral(1001));
 	}
 	
+	/**
+	 * Given number n as the length the side of a square spiral, calculate the diagonal sum
+	 * @param n The length of the side of the spiral
+	 * @return Diagonal sum of the spiral
+	 */
 	public static long diagonalSumOfSpiral(int n){
 		if(n < 1 || n % 2 == 0){
 			throw new IllegalArgumentException("Spiral size must be an odd positive number");
@@ -41,6 +47,12 @@ public class Problem28 {
 		
 		return sum;
 	}
+	
+	/**
+	 * Given number n as the length the side of a square spiral, calculate the sum of all corners of that spiral
+	 * @param n The length of the side of the spiral
+	 * @return Sum of all corners of the spiral
+	 */
 	public static long cornerSumOfSpiral(int n){
 		if(n == 1){
 			return 1;
