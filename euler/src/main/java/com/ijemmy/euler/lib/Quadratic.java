@@ -13,5 +13,17 @@ public class Quadratic {
 		result += a*n + b;
 		return result;
 	}
+	
+	public int getMaxPrime(){
+		int i = -1;
+		boolean isCurrentIPrime = true;
+		
+		while(isCurrentIPrime){
+			i++;
+			isCurrentIPrime = Prime.isPrime(this.compute(i));
+		}
+		
+		return i-1;
+	}
 
 }

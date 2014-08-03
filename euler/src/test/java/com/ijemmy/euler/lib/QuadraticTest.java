@@ -2,7 +2,6 @@ package com.ijemmy.euler.lib;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 
 public class QuadraticTest {
@@ -46,4 +45,23 @@ public class QuadraticTest {
 		expectedRes = 5000*5000 + 1000*5000 + 700;
 		assertEquals(expectedRes, q.compute(5000));
 	}
+	
+	@Test
+	public void getMaxPrimeWithPrimeQuad() {
+		Quadratic q = new Quadratic(1, 41);
+		assertEquals(39, q.getMaxPrime());
+		
+		q = new Quadratic(-79, 1601);
+		assertEquals(79, q.getMaxPrime());
+	}
+	
+	@Test
+	public void getMaxPrimeWithNonPrimeQuad() {
+		Quadratic q = new Quadratic(0, 4);
+		assertEquals(-1, q.getMaxPrime());
+		
+		q = new Quadratic(0, 1);
+		assertEquals(-1, q.getMaxPrime());
+	}
+	
 }
