@@ -2,10 +2,8 @@ package com.ijemmy.euler;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Set;
 
 public class TriangularNumber {
-	private int n;
 	private int firstNumber;
 	private int secondNumber;
 	
@@ -13,9 +11,6 @@ public class TriangularNumber {
 		if(n < 1){
 			throw new IllegalArgumentException("Triangular number starts from 1");
 		}
-		
-		this.n = n;
-		
 		
 		/**
 		 * Value of triangular number is (n)(n+1)/2
@@ -36,8 +31,7 @@ public class TriangularNumber {
 	}
 	
 	public int getNumberOfDivisors(){
-		HashMap<Integer, Integer> primeFactors = this.getPrimeFactors();
-		Iterator<Integer> it = getPrimeFactors().values().iterator(); 
+		Iterator<Integer> it = this.getPrimeFactors().values().iterator(); 
 		int numberOfDivisor = 1;
 		while(it.hasNext()){
 			numberOfDivisor *= (it.next() + 1);
