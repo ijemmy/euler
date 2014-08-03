@@ -27,12 +27,19 @@ public class Problem12 {
 	 * To do prime factorization, we must find the list of all prime number until that number. This take O(sqr(N))
 	 * If we calculate prime factorization of two numbers (a and b), it is O(sqr(a)) + O(sqr(b))
 	 * If we calculate prime factorization of the sum, it is (O(sqr(a*b)))
+	 * Performance note(2): For this problem, Caching can be used in Factor class to improve speed because we repeatedly compute the number until
+	 * we find the number that 500 divisor. I do not implement cache because I want to keep the library generic and avoid adding static mutable object (HashMap) into the Factor class
 	 */
 	public static void main(String[] args) {
-		//TODO:Add caching to improve speed
-		
-		
-		//Factor.primeFactorize()
+		int currentN = 1;
+		TriangularNumber currentTN = new TriangularNumber(currentN) ;
+		int currentNoOfDivisor = currentTN.getNumberOfDivisors();
+		while(currentNoOfDivisor <= 500){
+			currentN++;
+			currentTN = new TriangularNumber(currentN);
+			currentNoOfDivisor = currentTN.getNumberOfDivisors();
+		}
+		System.out.println("Value of the first triangle number to have over five hundred divisors = " + currentTN.getValue());
 	}
 
 }
