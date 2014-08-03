@@ -7,18 +7,18 @@ import java.util.ListIterator;
 
 public class CollatzSequence {
 	
-	static HashMap<Integer, Integer> seqLengthMap = new HashMap<Integer, Integer>();
+	static HashMap<Long, Integer> seqLengthMap = new HashMap<Long, Integer>();
 	
-	public static int getLength(int n){
+	public static int getLength(long n){
 		//Retrieve from cache
 		if(seqLengthMap.containsKey(n)){
 			return seqLengthMap.get(n);
 		}
 		
-		List<Integer> seq = new LinkedList<Integer>(); //For caching
+		List<Long> seq = new LinkedList<Long>(); //For caching
 		seq.add(n);
 		
-		int currentNo = n;
+		long currentNo = n;
 		int length = 1;
 		//Though it has not been proved, I will assume that ColltazSequence always ends with 1
 		while(currentNo != 1){
@@ -29,15 +29,14 @@ public class CollatzSequence {
 		int result = length;
 		
 		//Iterate the sequence backward to store lengths in cache before returning result
-		ListIterator<Integer> it = seq.listIterator();
+		ListIterator<Long> it = seq.listIterator();
 		while(it.hasNext()){
 			seqLengthMap.put(it.next(), length--);
 		}
-		System.out.println(seqLengthMap);
 		return result;
 	}
 	
-	public static int getNextNumber(int n){
+	public static long getNextNumber(long n){
 		if(n <= 1){
 			throw new IllegalArgumentException("Collatz sequence does not have the next number for 1 and below ");
 		}

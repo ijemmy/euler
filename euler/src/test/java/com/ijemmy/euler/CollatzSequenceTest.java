@@ -42,7 +42,7 @@ public class CollatzSequenceTest {
 	
 	@Test
 	public void getSeqLengthUseCache() {
-		CollatzSequence.seqLengthMap = new HashMap<Integer, Integer>();
+		CollatzSequence.seqLengthMap = new HashMap<Long, Integer>();
 		CollatzSequence.getLength(13);
 		assertEquals(10 , CollatzSequence.seqLengthMap.size());
 	}
