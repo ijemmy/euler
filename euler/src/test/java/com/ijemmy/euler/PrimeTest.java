@@ -697,20 +697,20 @@ public class PrimeTest {
 	}	
 
 	@Test
-	public void getPrimeListBelow10(){
+	public void getPrimeListUntil10(){
 		int[] primeBelow10 = {2,3,5,7};
-		assertArrayEquals(primeBelow10, Prime.getListBelow(10));
+		assertArrayEquals(primeBelow10, Prime.getListUntil(10));
 	}
 	
 	@Test
-	public void getPrimeListBelow100(){
+	public void getPrimeListUntil100(){
 		int[] primeBelow100 = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97};
-		assertArrayEquals(primeBelow100, Prime.getListBelow(100));
+		assertArrayEquals(primeBelow100, Prime.getListUntil(100));
 	}
 	
 	@Test
-	public void getPrimeListBelow0(){
+	public void getPrimeListUntil0(){
 		int[] primeBelow0 = {};
-		assertArrayEquals(primeBelow0, Prime.getListBelow(0));
+		assertArrayEquals(primeBelow0, Prime.getListUntil(0));
 	} 
 }

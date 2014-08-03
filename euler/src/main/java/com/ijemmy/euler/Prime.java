@@ -49,7 +49,7 @@ public class Prime {
 		return result;		
 	}
 	
-	public static int[] getListBelow(int limit){
+	public static int[] getListUntil(int limit){
 		List<Integer> result = new LinkedList<Integer>();
 		int candidate = 2;
 		while(candidate <= limit){
