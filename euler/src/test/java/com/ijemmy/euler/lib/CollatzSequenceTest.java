@@ -1,10 +1,12 @@
-package com.ijemmy.euler;
+package com.ijemmy.euler.lib;
 
 import static org.junit.Assert.*;
 
 import java.util.HashMap;
 
 import org.junit.Test;
+
+import com.ijemmy.euler.lib.CollatzSequence;
 
 public class CollatzSequenceTest {
 

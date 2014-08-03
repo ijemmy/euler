@@ -1,4 +1,4 @@
-package com.ijemmy.euler;
+package com.ijemmy.euler.lib;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,8 @@ import java.math.BigInteger;
 import java.util.Arrays;
 
 import org.junit.Test;
+
+import com.ijemmy.euler.lib.Prime;
 
 public class PrimeTest {
 	//Prime numbers are from http://primes.utm.edu/lists/small/10000.txt

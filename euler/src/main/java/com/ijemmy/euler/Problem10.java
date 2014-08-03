@@ -1,5 +1,7 @@
 package com.ijemmy.euler;
 
+import com.ijemmy.euler.lib.Prime;
+
 public class Problem10 {
 
 	public static void main(String[] args) {

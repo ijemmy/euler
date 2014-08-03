@@ -1,4 +1,4 @@
-package com.ijemmy.euler;
+package com.ijemmy.euler.lib;
 
 import java.math.BigInteger;
 import java.util.Iterator;

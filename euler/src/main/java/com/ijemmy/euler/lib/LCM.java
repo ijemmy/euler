@@ -1,4 +1,4 @@
-package com.ijemmy.euler;
+package com.ijemmy.euler.lib;
 
 public class LCM {
 	public static int calculate(int a, int b) {

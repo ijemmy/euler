@@ -1,4 +1,4 @@
-package com.ijemmy.euler;
+package com.ijemmy.euler.lib;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,8 @@ import java.util.HashMap;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.ijemmy.euler.lib.Factor;
 
 public class FactorTest {
 	private HashMap<Integer, Integer> expectedMap;

@@ -1,4 +1,4 @@
-package com.ijemmy.euler;
+package com.ijemmy.euler.lib;
 
 import java.util.HashMap;
 import java.util.Set;

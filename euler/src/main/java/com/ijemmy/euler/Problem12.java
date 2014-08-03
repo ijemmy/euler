@@ -1,5 +1,7 @@
 package com.ijemmy.euler;
 
+import com.ijemmy.euler.lib.TriangularNumber;
+
 public class Problem12 {
 
 	/**
