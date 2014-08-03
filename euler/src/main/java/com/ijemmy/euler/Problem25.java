@@ -1,8 +1,6 @@
 package com.ijemmy.euler;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.math.RoundingMode;
 
 /**
  * F(n) = F(n-1) + F(n-2)
