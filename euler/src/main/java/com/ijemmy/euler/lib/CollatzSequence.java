@@ -5,9 +5,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
+/**
+ * This class encapsulates calculations related Collatz Sequence
+ * It implements caching feature for calculating the sequence's length
+ * 
+ * @author ijemmy
+ *
+ */
 public class CollatzSequence {
 	
-	static HashMap<Long, Integer> seqLengthMap = new HashMap<Long, Integer>();
+	private static HashMap<Long, Integer> seqLengthMap = new HashMap<Long, Integer>();
 	
 	public static int getLength(long n){
 		//Retrieve from cache
@@ -36,6 +43,11 @@ public class CollatzSequence {
 		return result;
 	}
 	
+	/**
+	 * Get the next number in the Collatz Sequence
+	 * @param n Current number
+	 * @return The next number in Collatz sequence
+	 */
 	public static long getNextNumber(long n){
 		if(n <= 1){
 			throw new IllegalArgumentException("Collatz sequence does not have the next number for 1 and below ");
@@ -46,5 +58,20 @@ public class CollatzSequence {
 		}else{
 			return n * 3 + 1;
 		}
+	}
+	
+	/**
+	 * User can specify the map to be used for caching with this method. The cache is used for sequence length calculation
+	 * @param map A map to be used for caching
+	 */
+	static void setCache(HashMap<Long, Integer> map){
+		seqLengthMap = map;
+	}
+	
+	/**
+	 * Clear the cached values
+	 */
+	static void clearCache(){
+		seqLengthMap.clear();
 	}
 }

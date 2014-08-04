@@ -38,16 +38,17 @@ public class CachedFactorialTest {
 	
 	@Test
 	public void factorialShouldUseCache(){
-		CachedFactorial.setCache(new HashMap<Integer, Long>());
-		assertEquals(0, CachedFactorial.cacheMap.size());
+		HashMap<Integer, Long> cache = new HashMap<Integer, Long>();
+		CachedFactorial.setCache(cache);
+		assertEquals(0, cache.size());
 		
 		assertEquals(6, CachedFactorial.get(3));
-		assertEquals(1, CachedFactorial.cacheMap.size());
+		assertEquals(1, cache.size());
 		
 		assertEquals(24, CachedFactorial.get(4));
-		assertEquals(2, CachedFactorial.cacheMap.size());
+		assertEquals(2, cache.size());
 		
 		assertEquals(6, CachedFactorial.get(3));
-		assertEquals(2, CachedFactorial.cacheMap.size());
+		assertEquals(2, cache.size());
 	}
 }

@@ -44,8 +44,9 @@ public class CollatzSequenceTest {
 	
 	@Test
 	public void getSeqLengthUseCache() {
-		CollatzSequence.seqLengthMap = new HashMap<Long, Integer>();
+		HashMap<Long, Integer> cache = new HashMap<Long, Integer>();
+		CollatzSequence.setCache(cache);
 		CollatzSequence.getLength(13);
-		assertEquals(10 , CollatzSequence.seqLengthMap.size());
+		assertEquals(10 , cache.size());
 	}
 }

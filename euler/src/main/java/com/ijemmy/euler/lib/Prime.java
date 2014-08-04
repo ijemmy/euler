@@ -5,32 +5,50 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * This class encapsulates calculations of prime numbers
+ * 
+ * @author ijemmy
+ *
+ */
 public class Prime {
-	//TODO: Implement caching if required
 	
-	public static boolean isPrime(long l){
-		if(l < 2){
+	/**
+	 * Find out if the given number is prime or not
+	 * @param n The number to be tested
+	 * @return A boolean indicate whether the parameter is prime or not
+	 */
+	public static boolean isPrime(long n){
+		if(n < 2){
 			return false;
 		}
 		
-		if(l == 2){
+		//2 is the only even prime
+		if(n == 2){
 			return true;
 		}
 		
-		if(l % 2 == 0){
+		//All even numbers are not prime
+		if(n % 2 == 0 ){
 			return false;
 		}
 		
-		//Sieve of Eratosthenes
-		int limit = (int) Math.round(Math.sqrt(l));
-		for(int i = 3; i <= limit ; i+=2){
-			if(l % i == 0){
+		//Adapted from sieve of Eratosthenes
+		int limit = (int) Math.round(Math.sqrt(n));
+		//Only odd number is used to check
+		for(int i = 3; i <= limit ; i+=2){ 
+			if(n % i == 0){
 				return false;
 			}
 		}
 		return true;
 	}
 	
+	/**
+	 * Get a list of prime number until the given size
+	 * @param size The limit size of the prime list
+	 * @return Array of prime number until the given size
+	 */
 	public static int[] getList(int size){
 		if(size <= 0){
 			throw new IllegalArgumentException("The size parameter must be positive");
@@ -39,6 +57,8 @@ public class Prime {
 		int[] result = new int[size];
 		int candidate = 2;
 		int currPos = 0;
+		
+		//Fill the array with prime number until it is full
 		while(currPos < result.length){
 			if(isPrime(candidate)){
 				result[currPos++] = candidate;
@@ -49,7 +69,14 @@ public class Prime {
 		return result;		
 	}
 	
+	/**
+	 * Get a list of prime number until the given limit number 
+	 * @param limit Upper limit of the prime number in the returned list
+	 * @return List of prime numbers until the given limit
+	 */
 	public static int[] getListUntil(int limit){
+		//Since we do not know the size, we use List instead of an array
+		//LinekdList is used be cause we only append and iterate sequentially, no index access
 		List<Integer> result = new LinkedList<Integer>();
 		int candidate = 2;
 		while(candidate <= limit){
@@ -69,17 +96,27 @@ public class Prime {
 		return intResult;		
 	}
 	
-	public static int getPrimeAt(int primeAt){
-		if(primeAt <= 0){
+	/**
+	 * Get the n th prime number
+	 * @param n 
+	 * @return n th prime number
+	 */
+	public static int getPrimeAt(int n){
+		if(n <= 0){
 			throw new IllegalArgumentException("The position of prime must be positive");
 		}
-		return Prime.getList(primeAt)[primeAt-1];
+		return Prime.getList(n)[n-1];
 	}
 	
-	public static BigInteger sumBelow(int limit){
+	/**
+	 * Calculate the summation of all prime numbers below the given upper bound
+	 * @param upperBound The upper limit of the prime number to be summed(exclusive)
+	 * @return The sum of all prime numbers which are less than upper bound
+	 */
+	public static BigInteger sumBelow(int upperBound){
 		BigInteger sum = BigInteger.valueOf(0);
 		int candidate = 2;
-		while(candidate < limit){
+		while(candidate < upperBound){
 			if(isPrime(candidate)){		
 				sum = sum.add(BigInteger.valueOf(candidate));
 			}

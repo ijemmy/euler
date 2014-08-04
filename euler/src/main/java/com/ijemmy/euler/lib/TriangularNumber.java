@@ -3,10 +3,21 @@ package com.ijemmy.euler.lib;
 import java.util.HashMap;
 import java.util.Iterator;
 
+/**
+ * This class represents a triangular number. It provides related calculation
+ * The object in this class is immutable.
+ * 
+ * @author ijemmy
+ *
+ */
 public class TriangularNumber {
 	private int firstNumber;
 	private int secondNumber;
 	
+	/**
+	 * Constructor for nth triangular number
+	 * @param n
+	 */
 	public TriangularNumber(int n) {
 		if(n < 1){
 			throw new IllegalArgumentException("Triangular number starts from 1");
@@ -26,11 +37,21 @@ public class TriangularNumber {
 		}
 	}
 	
+	/**
+	 * Get the value of this triangular number
+	 * @return the number's value
+	 */
 	public int getValue(){
 		return firstNumber * secondNumber;
 	}
 	
+	/**
+	 * Get the number of divisors for this triangular number
+	 * @return Number of divisors
+	 */
 	public int getNumberOfDivisors(){
+		//Let's say the prime factor is 2(2) * 3(4) * 11(1)
+		//The number of divisor is the product of all multiplier , which is (2+1) * (4+1) * (1+1)
 		Iterator<Integer> it = this.getPrimeFactors().values().iterator(); 
 		int numberOfDivisor = 1;
 		while(it.hasNext()){
@@ -41,7 +62,7 @@ public class TriangularNumber {
 	
 	
 	/**
-	 * Keep all dependencies in on class Factor in private here
+	 * Keep all dependencies in on class Factor in private method
 	 * @return
 	 */
 	private HashMap<Integer, Integer> getPrimeFactors(){
